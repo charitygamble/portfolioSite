@@ -10,7 +10,7 @@ layout: layouts/base.njk
     
     {{ content | safe }}
     Share this post: 
-        {% set fullPageUrl = site.rootURL + page.url %}
+        {% set fullPageUrl = site.rootURL + page.url | url %}
         {% set pageUrl = fullPageUrl | urlencode %}
         {% set stitle = title | urlencode %}
         <div class="social-sharing">

@@ -159,6 +159,34 @@ main {
     padding: 1.25rem 2rem; /* Added some horizontal padding */
 }
 
+/* Blog Post Specific Styles */
+article h1,
+article h2,
+article h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+article a {
+    color: var(--nav-bg-color);
+    text-decoration: none;
+    border-bottom: 2px solid var(--nav-hover-bg-color);
+}
+
+article a:hover {
+    border-bottom-color: var(--nav-bg-color);
+}
+
+article ul,
+article ol {
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
 /* Improve readability of main content paragraphs */
 main p {
     line-height: 1.6;
@@ -462,14 +490,14 @@ main p {
     color: var(--nav-bg-color);
 }
 
-pre {
+pre, code {
     background: var(--card-bg-color);
-    border: 1px solid var(--off-white);
+    border: 1px solid var(--nav-hover-bg-color);
     border-left: 3px solid var(--nav-bg-color);
     color: var(--text-color);
     page-break-inside: avoid;
-    font-family: monospace;
-    font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.6em;
     max-width: 100%;
@@ -477,4 +505,5 @@ pre {
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
+    border-radius: 0.25rem;
 }

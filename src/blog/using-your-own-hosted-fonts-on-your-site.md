@@ -3,6 +3,7 @@ title: Using Your Own Hosted Fonts on Your Site
 description: How to use fonts hosted on your own hosting account or server for your website instead of importing Google Fonts.
 date: 2025-09-29
 tags: post
+layout: layouts/post.njk
 ---
 
 For the longest time, I used to use [Google Fonts](https://fonts.google.com) to serve custom fonts to my website. But then I started hearing about how using Google Fonts to serve custom fonts could be slowing my sites down, and I wondered how I could mitigate that. This article from [Capital Numbers](https://www.capitalnumbers.com/blog/self-hosting-vs-google-fonts/) does a great job of explaining what you can do and why you should do it. 
