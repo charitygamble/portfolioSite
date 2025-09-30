@@ -53,6 +53,17 @@ h1, h2, h3, h4, h5, h6 {
     --card-bg-color: #283645; /* Same as nav for dark mode */
 }
 
+html {
+    overflow-y: scroll;
+}
+
+@supports (scrollbar-gutter: stable) {
+    html {
+        overflow-y:scroll;
+        scrollbar-gutter: stable;
+    }
+}
+
 body {
     margin: 0;
     font-family: 'Roboto Mono', monospace;
