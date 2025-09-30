@@ -3,6 +3,7 @@ title: Certification Exam Study Resources
 description: After taking a couple of certification exams, I've come to know and love a few resources and I'm sharing them with you.
 date: 2025-09-09
 tags: post
+layout: layouts/post.njk
 ---
 As a student who is majoring in Cybersecurity and Networking, I have discovered an entire world of industry certifications I didn't even know existed. For example: the CCST (Cisco Certified Support Technician) certification, the CompTIA Network+, Security+, CySA+, Linux+, PenTest+, and many others. I did know about A+, but CompTIA wasn't the ones governing that exam when I first heard about it. And these don't even begin to cover other certifications you can find for tech industries such as web or software development, AI, and more.
 

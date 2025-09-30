@@ -33,13 +33,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Default Light Theme */
 [data-theme="light"] {
-    --bg-color: #f4f7f5;      /* Off-white with a hint of green */
-    --text-color: #333d29;    /* Dark olive */
-    --nav-bg-color: #656d4a;  /* Muted olive green */
-    --nav-text-color: #ffffff;/* White */
-    --nav-hover-bg-color: #a4ac86; /* Lighter olive */
+    --bg-color: #F8F7FA;      /* A very light, almost grey-purple */
+    --text-color: #2D2A32;    /* A very dark, desaturated purple */
+    --nav-bg-color: #594A66;  /* A muted, dark purple */
+    --nav-text-color: #E9E6EC;/* A light grey-purple for text on the nav */
+    --nav-hover-bg-color: #736380; /* A lighter version of the nav background */
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --card-bg-color: #e9edea; /* Slightly darker off-white for cards */
+    --card-bg-color: #E9E6EC; /* A light grey-purple */
 }
 
 /* Dark Theme */
@@ -153,7 +153,7 @@ body {
 main {
     grid-column: 2;
     grid-row: 1; /* Place this element in the first grid row (the flexible one) */
-    max-width: 50rem; /* Approx 800px, adjust as needed */
+    max-width: 65rem; /* Approx 800px, adjust as needed */
     width: 100%;
     justify-self: center; /* Center the main element within its grid column */
     padding: 1.25rem 2rem; /* Added some horizontal padding */
@@ -170,14 +170,15 @@ main p {
     grid-row: 2; /* Place this element in the second grid row (the auto-sized one) */
     justify-self: center; /* Center the footer within its grid column */
     width: 100%;
-    max-width: 50rem;
-    padding: 1.5rem 2rem;
+    max-width: 65rem;
+    padding: 1rem 2rem;
     margin-top: 2rem;
     border-top: 1px solid var(--nav-hover-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem; /* Add gap for smaller screens */
+    font-size: .875rem !important;
 }
 
 .social-links {
