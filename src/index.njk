@@ -1,0 +1,59 @@
+---
+title: My Portfolio
+layout: layouts/base.njk
+---
+
+<div class="hero">
+    <h1>Charity Gamble</h1>
+    <p class="subtitle">Front-End Developer & Cybersecurity Student</p>
+    <p>I build accessible, responsive websites and am passionate about creating secure digital experiences. Welcome to my corner of the web.</p>
+    <a href="https://charitygamble.dev/assets/cgambleresume.pdf" class="card-link">Résumé</a>
+</div>
+
+<div class="home-section">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+        {# Check if the projects variable exists and has items before looping #}
+        {%- if projects and projects.length -%}
+            {# Set a counter to limit the number of projects shown #}
+            {% set projectCount = 0 %}
+            {%- for project in projects -%}
+                {# Only render the card if it's not a draft AND we haven't shown 2 yet #}
+                {%- if not project.draft and projectCount < 2 -%}
+                    {% set projectCount = projectCount + 1 %}
+                    <div class="card">
+                        <h3>
+                            {% if project.isLinkedTitle %}
+                                <a href="{{ project.titleUrl }}">{{ project.title }}</a>
+                            {% else %}
+                                {{ project.title }}
+                            {% endif %}
+                        </h3>
+                        <p>{{ project.description }}</p>
+                        {% if project.liveUrl %}
+                            <a href="{{ project.liveUrl }}" class="card-link">{{ project.liveText }}</a>
+                        {% elif project.githubUrl %}
+                            <a href="{{ project.githubUrl }}" class="card-link">{{ project.githubText }}</a>
+                        {% endif %}
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        {%- endif -%}
+    </div>
+</div>
+
+<div class="home-section">
+    <h2>Latest From the Blog</h2>
+    <div class="project-grid">
+        {# Explicitly loop through the collection and limit to the first two items #}
+        {%- for post in collections.post -%}
+            {% if loop.index <= 2 %}
+                <div class="card">
+                    <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+                    <p>{{ post.data.description }}</p>
+                    <a href="{{ post.url }}" class="card-link">Read More</a>
+                </div>
+            {% endif %}
+        {%- endfor -%}
+    </div>
+</div>

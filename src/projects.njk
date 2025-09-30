@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: My Projects
+---
+
+<h1>My Projects</h1>
+<p>Here are a few things I've been working on. This grid is responsive and will adapt to different screen sizes.</p>
+
+<div class="project-grid">
+    {%- for project in projects -%}
+        {%- if not project.draft -%}
+            <div class="card">
+                <h3>
+                    {% if project.isLinkedTitle %}
+                        <a href="{{ project.titleUrl }}">{{ project.title }}</a>
+                    {% else %}
+                        {{ project.title }}
+                    {% endif %}
+                </h3>
+                <p>{{ project.description }}</p>
+                {% if project.liveUrl %}
+                    <a href="{{ project.liveUrl }}" class="card-link">{{ project.liveText }}</a>
+                {% elif project.githubUrl %}
+                     <a href="{{ project.githubUrl }}" class="card-link">{{ project.githubText }}</a>
+                {% endif %}
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+</div>

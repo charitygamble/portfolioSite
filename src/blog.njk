@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: My Blog
+permalink: /blog/index.html
+---
+
+<h1>My Blog</h1>
+<p>Thoughts and articles on web development, design, and technology.</p>
+
+<div class="project-grid">
+    {%- for post in collections.post -%}
+    <div class="card">
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.description }}</p>
+        <a href="{{ post.url }}" class="card-link">Read More</a>
+    </div>
+    {%- endfor -%}
+</div>
