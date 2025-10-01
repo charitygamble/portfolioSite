@@ -204,7 +204,7 @@ main p {
 }
 
 /* Footer Styles */
-.site-footer {
+footer.site-footer {
     grid-column: 2;
     grid-row: 2; /* Place this element in the second grid row (the auto-sized one) */
     justify-self: center; /* Center the footer within its grid column */
@@ -217,7 +217,7 @@ main p {
     justify-content: space-between;
     align-items: center;
     gap: 1rem; /* Add gap for smaller screens */
-    font-size: .875rem !important;
+    font-size: .875rem;
 }
 
 .social-links {
@@ -486,8 +486,8 @@ main p {
 }
 
 /* --------- Social Sharing Links ---------- */
-.social-sharing {
-    font-size: 1.5rem !important;
+div.social-sharing {
+    font-size: 1.5rem;
     gap: 4rem;
 }
 
