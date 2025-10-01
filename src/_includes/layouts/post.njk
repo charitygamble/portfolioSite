@@ -13,10 +13,12 @@ layout: layouts/base.njk
         {% set fullPageUrl = site.rootURL + page.url | url %}
         {% set pageUrl = fullPageUrl | urlencode %}
         {% set stitle = title | urlencode %}
+        {% set bskyText = (title + " " + fullPageUrl) | urlencode %}
         <div class="social-sharing">
             <a href="https://facebook.com/sharer.php?u={{ pageUrl }}" target="_blank" aria-label="Share on Facebook"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://x.com/intent/tweet?url={{ pageUrl }}&text={{ stitle }}" target="_blank" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://linkedin.com/sharing/share-offsite/?url={{ pageUrl }}" target="_blank" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://reddit.com/submit?url={{ pageUrl }}&title={{ stitle }}" target="_blank" aria-label="Share on Reddit"><i class="fa-brands fa-reddit"></i></a>
+            <a href="https://bsky.app/intent/compose?text={{ bskyText }}" target="_blank" aria-label="Share on Bluesky"><i class="fa-brands fa-bluesky"></i></a>
         </div>
 </article>
