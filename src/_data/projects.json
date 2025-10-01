@@ -17,14 +17,14 @@
     "titleUrl": "https://cg-codelab.netlify.app",
     "description": "Created from a tutorial featured on freeCodeCamp's YouTube channel, this project is an in-browser, online-only code editor. It has capabilities for HTML, CSS, and JavaScript, with the ability to preview the written code.",
     "githubUrl": "https://github.com/charitygamble/codeEditor",
-    "githubText": "View on Github"
+    "githubText": "View on GitHub"
   },
   {
-    "title": "My Awesome New Project",
-    "description": "This is a description of my newest project. It showcases my skills in modern web technologies and problem-solving.",
-    "liveUrl": "#",
-    "liveText": "View Live Demo",
-    "githubUrl": "#",
-    "draft": true
+    "title": "My Old Portfolio Site",
+    "isLinkedTitle": true,
+    "titleUrl": "https://cg-old-portfolio.netlify.app",
+    "description": "This is my old portfolio website, created with HTML, CSS, and maybe a little JavaScript.",
+    "githubText": "View on GitHub",
+    "githubUrl": "https://github.com/charitygamble/cyberdev"
   }
 ]
