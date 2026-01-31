@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 :root {
     color-scheme: light dark; /* allows site to be viewed in both dark and light modes */
      --red: #e34f26 /* skills color #1 */;
-     --orange: #FF8C00 /*skills color #2
+     --orange: #FF8C00 /*skills color #2*/;
     --blue: #264de4 /* skills color #3 */;
     --yellow: #f7df1e /* skills color #4 */;
     --aqua: #61dafb /*skills color #5 */;
