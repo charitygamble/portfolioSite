@@ -13,8 +13,8 @@ collections:
     label_singular: Post
     folder: src/blog
     fields:
-      - { label: Layout, name: layout, widget: string }
-      - { label: Tags, name: tags, widget: string }
+      - { label: Layout, name: layout, widget: hidden, default: layouts/post.njk }
+      - { label: Tags, name: tags, widget: list, default: post }
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, type: date }
       - { label: Body, name: body, widget: richtext }
