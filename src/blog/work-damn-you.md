@@ -1,5 +1,5 @@
 ---
-layout: post.njk
+layout: layouts/post.njk
 tags: post
 title: WORK DAMN YOU
 date: 2026-10-02
