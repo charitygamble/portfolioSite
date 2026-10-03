@@ -8,10 +8,10 @@ media_folder: /public/assets/images
 public_folder: /assets/images
 
 collections:
-  - name: posts
+  - name: post
     label: Posts
     label_singular: Post
-    folder: /blog
+    folder: src/blog
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, type: date }
