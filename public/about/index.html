@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio and blog for Charity Gamble, Front-End Web Developer and Cybersecurity Student">
+    <meta content="Charity Gamble - Front-End Developer" property="og:title">
+    <meta property="og:type" content="website">
+    <meta content="https://charitygamble.dev/assets/favicon.png" property="og:image">
+    <meta property="og:url" content="https://charitygamble.dev">
+    <link rel="icon" href="/assets/cg-logo500.webp">
+    <script src="https://kit.fontawesome.com/203c33e277.js" crossorigin="anonymous"></script>
+    <title>About Me</title>
+    <script>
+    // This script is inlined in the <head> to prevent a flash of unstyled content (FOUC)
+    (() => {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+</script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="main-nav">
+    <div class="logo">
+        <a href="/" aria-label="Back to homepage">
+            <!-- This is a placeholder logo. Replace it with your own SVG or <img> tag. -->
+           <img src="/images/cg-logo250.webp" alt="Charity Gamble logo">
+        </a>
+    </div>
+    <ul>
+        <li><a href="/" >Home</a></li>
+        <li><a href="/about/" class="active">About</a></li>
+        <li><a href="/projects/" >Projects</a></li>
+        <li><a href="/blog/" >Blog</a></li>
+        <li><a href="/contact/" >Contact</a></li>
+    </ul>
+</nav>
+    <main id="main-content">
+        
+<h1>About Me</h1>
+<p>
+               I started building websites in 1999, when I taught myself HTML4.0. I soon graduated to XHTML and CSS, which turned to HTML5 and CSS. In 2003, I started working with WordPress by building HTML/CSS layouts and designs and then using WordPress to power the blog, including it into the HTML files using php includes. As time went on, I started using WordPress by itself, creating themes for blogs and websites. Today I customize pre-existing themes and I am working on full-site editing and creation using the block editor. My preferred technologies are HTML, CSS, and 11ty. I am planning to learn Tailwind CSS, SASS, Bootstrap, and advance my JavaScript skills to learn React.js.
+            </p>
+            <p>I am currently a student at Pikes Peak State College, in my second year of an Associate of Applied Sciece in Cybersecurity. I am set to graduate in May 2026 with my AAS and plan to go on to PPSC's BAS program in Cybersecurity. I am currently CCST Cybersecurity, CompTIA A+, CompTIA Net+, and CompTIA Sec+ certified.</p>
+
+<div class="skills-container">
+    <h2>Skills &amp; Certifications</h2>
+    <div class="grid-skills">
+          <div class="skill-card sec">
+            <i class="fa-solid fa-shield-halved sec-icon"></i>
+            <p>CompTIA Security+</p>
+        </div>
+        <div class="skill-card net">
+            <i class="fa-solid fa-network-wired net-icon"></i>
+            <p>CompTIA Network+</p>
+        </div>
+        <div class="skill-card aplus">
+        <i class="fa-solid fa-computer aplus-icon"></i>
+        <p>CompTIA A+</p>
+        </div>
+        <div class="skill-card cisco">
+            <i class="fa-solid fa-signal cisco-icon"></i>
+            <p>Cisco CCST Cybersecurity</p>
+        </div>
+        <div class="skill-card html">
+            <i class="fa-brands fa-html5 html-icon"></i>
+            <p>HTML</p>
+        </div>
+        <div class="skill-card css">
+            <i class="fa-brands fa-css3-alt css-icon"></i>
+            <p>CSS</p>
+        </div>
+        <div class="skill-card wp">
+            <i class="fa-brands fa-wordpress wp-icon"></i>
+            <p>WordPress</p>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Charity Gamble. All rights reserved.</p>
+        <p>Built with <a href="https://11ty.dev">Build Awesome 3.1.5</a>, Hosted on <a href="https://cloudflare.com">CloudFlare Pages</a></p>
+        <div class="social-links">
+            <a href="https://github.com/charitygamble" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/charitygamble" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/cgambledev" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://bsky.app/charitygambledev.bsky.social" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-bluesky"></i>
+            </a>
+            <a href="https://instagram.com/charitygamble.dev" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+               <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <script>
+        // Self-invoking function to encapsulate theme logic and avoid polluting the global scope
+        (() => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) {
+                return;
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const htmlElement = document.documentElement;
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+
+                // Set the new theme on the HTML element
+                htmlElement.setAttribute('data-theme', newTheme);
+                // Save the user's preference
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+    </script>
+</body>
+</html>

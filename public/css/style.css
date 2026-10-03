@@ -1,0 +1,527 @@
+/* Basic body and layout setup */
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('/fonts/RobotoMono-VariableFont-wght.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-SemiBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    color-scheme: light dark; /* allows site to be viewed in both dark and light modes */
+     --red: #e34f26 /* skills color #1 */;
+     --orange: #FF8C00 /*skills color #2*/;
+    --blue: #264de4 /* skills color #3 */;
+    --yellow: #f7df1e /* skills color #4 */;
+    --aqua: #61dafb /*skills color #5 */;
+    --green: #339933 /* skills color #6 */;
+    --cornflower: #3776ab /* skills color #7 */;
+    --dark-gray: #202020 /* light mode text color */;
+    --off-white: #f2f0ef /* light mode background color */;
+}
+
+/* Default Light Theme */
+[data-theme="light"] {
+    --bg-color: #F8F7FA;      /* A very light, almost grey-purple */
+    --text-color: #2D2A32;    /* A very dark, desaturated purple */
+    --nav-bg-color: #594A66;  /* A muted, dark purple */
+    --nav-text-color: #E9E6EC;/* A light grey-purple for text on the nav */
+    --nav-hover-bg-color: #736380; /* A lighter version of the nav background */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-bg-color: #E9E6EC; /* A light grey-purple */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-color: #1b232d;      /* Dark slate blue */
+    --text-color: #e0e6e2;    /* Light grey-green */
+    --nav-bg-color: #283645;  /* Slightly lighter slate blue */
+    --nav-text-color: #cde5d7;/* Pale mint green */
+    --nav-hover-bg-color: #3a506b; /* Brighter slate blue */
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --card-bg-color: #283645; /* Same as nav for dark mode */
+}
+
+html {
+    overflow-y: scroll;
+}
+
+@supports (scrollbar-gutter: stable) {
+    html {
+        overflow-y:scroll;
+        scrollbar-gutter: stable;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    /* Use CSS Grid for the main layout and ensure it's at least the full viewport height */
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 5rem 1fr; /* A fixed column for nav, a flexible column for content */
+    grid-template-rows: 1fr auto; /* A flexible row for main content, an auto-sized row for the footer */
+}
+
+/* Accessibility: "Skip to Content" link */
+.skip-link {
+    position: absolute;
+    top: -4rem; /* Hide it off-screen */
+    left: 0;
+    background: var(--nav-hover-bg-color);
+    color: var(--nav-text-color);
+    padding: 0.5rem 1rem;
+    z-index: 9999;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0; /* Bring it into view on focus */
+}
+
+/* The main navigation bar container */
+.main-nav {
+    background-color: var(--nav-bg-color);
+    width: 5rem; /* Width of the vertical nav bar */
+    height: 100vh; /* Make the nav bar full height of the viewport */
+    position: fixed; /* Keep it in place while scrolling */
+    left: 0;
+    top: 0;
+    box-shadow: 0.2rem 0 0.5rem var(--shadow-color);    
+
+    /* Use flexbox to position the logo and nav links */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    padding: 1.5rem 0;
+}
+
+.logo img {
+    width: 3.125rem;
+    height: auto;
+    border-radius: 50%;
+}
+
+.logo a {
+    color: var(--nav-text-color);
+    display: block;
+}
+
+.main-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    /* This makes the UL take up the remaining space */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column-reverse; /* Stack nav items vertically, in reverse order */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100%; /* Take up full height of the nav bar */
+}
+
+.main-nav li {
+    margin: 1.25rem 0; /* Add some space between nav items */
+}
+
+.main-nav ul a {
+    display: block;
+    color: var(--nav-text-color);
+    text-decoration: none;
+    padding: 0.625rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent text from wrapping */
+
+    /* Rotate the text */
+    transform: rotate(-90deg);
+}
+
+.main-nav ul a:hover,
+.main-nav ul a.active,
+.main-nav ul a:focus-visible {
+    background-color: var(--nav-hover-bg-color);
+}
+
+/* Main content area */
+main {
+    grid-column: 2;
+    grid-row: 1; /* Place this element in the first grid row (the flexible one) */
+    max-width: 65rem; /* Approx 800px, adjust as needed */
+    width: 100%;
+    justify-self: center; /* Center the main element within its grid column */
+    padding: 1.25rem 2rem; /* Added some horizontal padding */
+}
+
+/* Blog Post Specific Styles */
+article h1,
+article h2,
+article h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+article a {
+    color: var(--nav-bg-color);
+    text-decoration: none;
+    border-bottom: 2px solid var(--nav-hover-bg-color);
+}
+
+article a:hover {
+    border-bottom-color: var(--nav-bg-color);
+}
+
+article ul,
+article ol {
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Improve readability of main content paragraphs */
+main p {
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+footer.site-footer {
+    grid-column: 2;
+    grid-row: 2; /* Place this element in the second grid row (the auto-sized one) */
+    justify-self: center; /* Center the footer within its grid column */
+    width: 100%;
+    max-width: 65rem;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--nav-hover-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem; /* Add gap for smaller screens */
+    font-size: .875rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--nav-bg-color);
+}
+
+/* Project Grid and Card Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.25rem 0.5rem var(--shadow-color);    
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.card h3 a {
+    color: var(--nav-bg-color);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.card h3 a:hover,
+.card h3 a:focus-visible {
+    border-bottom-color: var(--nav-hover-bg-color);
+}
+
+.card p {
+    flex-grow: 1; /* Allows the paragraph to fill space, pushing the link down */
+}
+
+.card-link {
+    display: inline-block;
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.card-link:hover {
+    background-color: var(--nav-hover-bg-color);
+}
+
+/* Contact Form Styles */
+.contact-form {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--nav-hover-bg-color);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    body {
+        /* Stack nav and main content vertically on mobile */
+        display: block; /* Revert to a simple block layout */
+    }
+
+    .main-nav {
+        /* Make nav a horizontal bar at the top */
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo {
+        padding: 0.5rem 1rem;
+    }
+
+    .main-nav ul {
+        /* Layout links horizontally */
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0.5rem 0;
+    }
+
+    .main-nav ul a {
+        /* Un-rotate the text */
+        transform: none;
+    }
+
+    main {
+        /* Reset main content to take full width */
+        max-width: none;
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding is included in the width */
+    }
+
+    .site-footer {
+        max-width: none;
+    }
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000; /* Ensures the button floats above other content */
+
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
+    border: 1px solid var(--nav-hover-bg-color);
+    border-radius: 50%; /* Makes the button a circle */
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 0.25rem 0.5rem var(--shadow-color);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    background-color: var(--nav-hover-bg-color);
+}
+
+.theme-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Hide the sun icon in dark mode, and moon in light mode */
+[data-theme="light"] .icon-moon {
+    display: none;
+}
+
+[data-theme="light"] .icon-sun {
+    display: block;
+}
+
+[data-theme="dark"] .icon-sun {
+    display: none;
+}
+
+[data-theme="dark"] .icon-moon {
+    display: block;
+}
+
+/* Skills */
+.skills-container {
+    padding: 6rem 0;
+}
+
+.skills-container h2 {
+    font-family: var(--heading), serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.skills-container .grid-skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .skills-container .grid-skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.skills-container .grid-skills .skill-card {
+    background-color: var(--dark-gray);
+    color: var(--off-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    cursor: context-menu;
+}
+
+.skills-container .grid-skills i {
+    font-size: 1.5rem;
+}
+
+.skills-container .grid-skills .html:hover {
+    background-color: var(--aqua);
+    color: var(--dark-gray);
+}
+
+.skills-container .grid-skills .css:hover {
+    background-color: var(--green);
+    color: var(--off-white);
+}
+
+.skills-container .grid-skills .wp:hover {
+    background-color: var(--cornflower);
+    color: var(--off-white);
+}
+
+.skills-container .grid-skills .sec:hover {
+    background-color: var(--orange);
+    color: var(--dark-gray);
+}
+
+.skills-container .grid-skills .net:hover {
+    background-color: var(--blue);
+    color: var(--off-white);
+}
+
+.skills-container .grid-skills .aplus:hover {
+    background-color: var(--red);
+    color: var(--off-white);
+}
+
+.skills-container .grid-skills .cisco:hover {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+}
+
+/* --------- Social Sharing Links ---------- */
+div.social-sharing {
+    font-size: 1.5rem;
+    gap: 4rem;
+}
+
+.social-sharing > a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    border-bottom: none;
+}
+
+.social-sharing > a:hover {
+    font-size: 1.5rem;
+    color: var(--nav-bg-color);
+}
+
+code {
+    background: var(--card-bg-color);
+    border: 1px solid var(--nav-hover-bg-color);
+    border-left: 3px solid var(--nav-bg-color);
+    color: var(--text-color);
+    page-break-inside: avoid;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    border-radius: 0.25rem;
+}

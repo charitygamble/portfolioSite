@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio and blog for Charity Gamble, Front-End Web Developer and Cybersecurity Student">
+    <meta content="Charity Gamble - Front-End Developer" property="og:title">
+    <meta property="og:type" content="website">
+    <meta content="https://charitygamble.dev/assets/favicon.png" property="og:image">
+    <meta property="og:url" content="https://charitygamble.dev">
+    <link rel="icon" href="/assets/cg-logo500.webp">
+    <script src="https://kit.fontawesome.com/203c33e277.js" crossorigin="anonymous"></script>
+    <title>Using Your Own Hosted Fonts on Your Site</title>
+    <script>
+    // This script is inlined in the <head> to prevent a flash of unstyled content (FOUC)
+    (() => {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+</script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="main-nav">
+    <div class="logo">
+        <a href="/" aria-label="Back to homepage">
+            <!-- This is a placeholder logo. Replace it with your own SVG or <img> tag. -->
+           <img src="/images/cg-logo250.webp" alt="Charity Gamble logo">
+        </a>
+    </div>
+    <ul>
+        <li><a href="/" >Home</a></li>
+        <li><a href="/about/" >About</a></li>
+        <li><a href="/projects/" >Projects</a></li>
+        <li><a href="/blog/" >Blog</a></li>
+        <li><a href="/contact/" >Contact</a></li>
+    </ul>
+</nav>
+    <main id="main-content">
+        
+<article>
+    <h1>Using Your Own Hosted Fonts on Your Site</h1>
+    <p class="post-meta">
+        <time datetime="2025-09-28" >28 Sep 2025</time>
+    </p>
+    
+    <p>For the longest time, I used to use <a href="https://fonts.google.com">Google Fonts</a> to serve custom fonts to my website. But then I started hearing about how using Google Fonts to serve custom fonts could be slowing my sites down, and I wondered how I could mitigate that. This article from <a href="https://www.capitalnumbers.com/blog/self-hosting-vs-google-fonts/">Capital Numbers</a> does a great job of explaining what you can do and why you should do it.</p>
+<p>If you're in the crowd of TLDR, the basic gist of the article is that it is up to you whether you choose to import/link Google Fonts and if you use the pre-connect solution or if you want to do what I did, which is host your fonts on your website. But... how do you do that?</p>
+<h2>Grab Your Fonts</h2>
+<p>First, grab your fonts. You need to be sure they are legal for you to use on the web - so if you're purchasing custom fonts from a website, make sure the license you're receiving includes web usage. You can also download the fonts themselves from Google Fonts, as we know those are licensed for web use. You <em>may</em> be able to download fonts from Adobe Fonts if you have a subscription but as I don't subscribe to Adobe products, I don't know, and even if you can download them, I don't know if they are licensed for web use.</p>
+<h2>Convert Your Fonts</h2>
+<p>Now that you have your fonts, you'll see that they are quite likely in TTF or True Type Format. That's all well and good if you're installing them on your computer, but if you're putting them on the web to use in your website, you'll need to convert them to WOFF or WOFF2. But how?</p>
+<p>Well, the easiest way I've found is to go to <a href="https://cloudconvert.com/woff-converter">CloudConvert</a> and add the files in, then convert them to either WOFF or WOFF2. Usually I convert them to both, but you can do one or the other.</p>
+<h2>Use Your Fonts</h2>
+<p>Ok, you have your converted fonts, but how do you use them? Well, first, put them in a folder in your website's directory. I tend to put them in a folder called &quot;fonts&quot;. I use the 11ty Static Site Generator, so my folder structure for where I put the fonts is is usually something like:
+site-name<br>
+--src<br>
+---assets<br>
+---css<br>
+---fonts <strong>&lt;- fonts go here</strong><br>
+---_includes</p>
+<p>You'll be calling your fonts in your CSS file... depending on where your CSS file lives in your document tree, you may need to adjust your path. The code to do this is as follows:</p>
+<pre><code>
+@font-face {
+	font-family: 'Font Name';
+	src: url('/folder-where-your-font-lives/font.woff2') format(wofff2);
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	}
+</code></pre>
+<p>Now, let's see what this looks like for a specific font. I have Montserrat converted to WOFF2 for a website I'm working on. I have it in regular, italic, and semi-bold. Here is how the declarations will look:</p>
+<pre><code>
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Montserrat.woff2') format(woff2);
+	font-style: normal;
+	font-weight: normal;
+	font-display: swap;
+	}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Monsterrat-Italic.woff2') format(woff2);
+	font-style: italic;
+	font-weight: normal;
+	font-display: swap;
+	}
+	
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/fonts/Monsterrat-SemiBold.woff2') format(woff2);
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	}
+</code></pre>
+<p>As you can see, we have three declarations for one font. Why? Because each one has different parameters for font-style and font-weight. Montserrat is normal for both. Montserrat Italic is italic for font-style, but normal for font-weight. And Montserrat Semi Bold is normal for font-style, but 600 for font-weight.</p>
+<p>All of them are font-display: swap, which basically just means that if there is a moment where they haven't yet loaded, a fall-back font will be displayed if one is set - otherwise it will display browser default fonts. This is to ensure that even if the font hasn't yet loaded for some reason, your text will still appear to your users.</p>
+<p>I realize this trick isn't new, but I'm putting this out there for those who might not know about it yet. I just learned about it a few months ago and I've been coding websites since HTML4.01 was the standard!</p>
+<p>If you have any questions, feel free to contact me through the link on the home page of this site!</p>
+
+    Share this post: 
+        
+        
+        
+        
+        <div class="social-sharing">
+            <a href="https://facebook.com/sharer.php?u=https%3A%2F%2Fcharitygamble.dev%2Fblog%2Fusing-your-own-hosted-fonts-on-your-site%2F" target="_blank" aria-label="Share on Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fcharitygamble.dev%2Fblog%2Fusing-your-own-hosted-fonts-on-your-site%2F&text=Using%20Your%20Own%20Hosted%20Fonts%20on%20Your%20Site" target="_blank" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcharitygamble.dev%2Fblog%2Fusing-your-own-hosted-fonts-on-your-site%2F" target="_blank" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://reddit.com/submit?url=https%3A%2F%2Fcharitygamble.dev%2Fblog%2Fusing-your-own-hosted-fonts-on-your-site%2F&title=Using%20Your%20Own%20Hosted%20Fonts%20on%20Your%20Site" target="_blank" aria-label="Share on Reddit"><i class="fa-brands fa-reddit"></i></a>
+            <a href="https://bsky.app/intent/compose?text=Using%20Your%20Own%20Hosted%20Fonts%20on%20Your%20Site%20https%3A%2F%2Fcharitygamble.dev%2Fblog%2Fusing-your-own-hosted-fonts-on-your-site%2F" target="_blank" aria-label="Share on Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+        </div>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Charity Gamble. All rights reserved.</p>
+        <p>Built with <a href="https://11ty.dev">Build Awesome 3.1.5</a>, Hosted on <a href="https://cloudflare.com">CloudFlare Pages</a></p>
+        <div class="social-links">
+            <a href="https://github.com/charitygamble" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/charitygamble" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/cgambledev" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://bsky.app/charitygambledev.bsky.social" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-bluesky"></i>
+            </a>
+            <a href="https://instagram.com/charitygamble.dev" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+               <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <script>
+        // Self-invoking function to encapsulate theme logic and avoid polluting the global scope
+        (() => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) {
+                return;
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const htmlElement = document.documentElement;
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+
+                // Set the new theme on the HTML element
+                htmlElement.setAttribute('data-theme', newTheme);
+                // Save the user's preference
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+    </script>
+</body>
+</html>

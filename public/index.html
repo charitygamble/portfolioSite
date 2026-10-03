@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio and blog for Charity Gamble, Front-End Web Developer and Cybersecurity Student">
+    <meta content="Charity Gamble - Front-End Developer" property="og:title">
+    <meta property="og:type" content="website">
+    <meta content="https://charitygamble.dev/assets/favicon.png" property="og:image">
+    <meta property="og:url" content="https://charitygamble.dev">
+    <link rel="icon" href="/assets/cg-logo500.webp">
+    <script src="https://kit.fontawesome.com/203c33e277.js" crossorigin="anonymous"></script>
+    <title>Charity Gamble - Front-End Web Developer &amp; Cybersecurity Student</title>
+    <script>
+    // This script is inlined in the <head> to prevent a flash of unstyled content (FOUC)
+    (() => {
+        const storedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    })();
+</script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="main-nav">
+    <div class="logo">
+        <a href="/" aria-label="Back to homepage">
+            <!-- This is a placeholder logo. Replace it with your own SVG or <img> tag. -->
+           <img src="/images/cg-logo250.webp" alt="Charity Gamble logo">
+        </a>
+    </div>
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/about/" >About</a></li>
+        <li><a href="/projects/" >Projects</a></li>
+        <li><a href="/blog/" >Blog</a></li>
+        <li><a href="/contact/" >Contact</a></li>
+    </ul>
+</nav>
+    <main id="main-content">
+        
+<div class="hero">
+    <h1>Charity Gamble</h1>
+    <p class="subtitle">Front-End Developer & Cybersecurity Student</p>
+    <p>I build accessible, responsive websites and am passionate about creating secure digital experiences. Welcome to my corner of the web.</p>
+    <a href="https://charitygamble.dev/assets/cgambleresume.pdf" class="card-link">Résumé</a>
+</div>
+
+<div class="home-section">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+        
+            
+                    <div class="card">
+                        <h3>
+                            
+                                amy kaybach
+                            
+                        </h3>
+                        <p>This is a WordPress website built for indie romance author Amy Kaybach. It uses the Kadence WordPress theme as a based.</p>
+                        
+                            <a href="https://amykaybach.com" class="card-link" target="_blank" rel="noopener noreferrer">View Website</a>
+                        
+                    </div>
+                    <div class="card">
+                        <h3>
+                            
+                                Cozy Books N Games
+                            
+                        </h3>
+                        <p>Another WordPress website, this time built to be a blog for gaming and book reviews. The theme used here is NoseGraze&#39;s TweakMeV2, customized.</p>
+                        
+                            <a href="https://cozybooksngames.com" class="card-link" target="_blank" rel="noopener noreferrer">View Website</a>
+                        
+                    </div></div>
+</div>
+
+<div class="home-section">
+    <h2>Latest From the Blog</h2>
+    <div class="project-grid">
+        
+                <div class="card">
+                    <h3><a href="/blog/gemini-code/">My Experience Using Gemini Code</a></h3>
+                    <p>I used Gemini Code to create the new version of this site...here&#39;s how it went.</p>
+                    <a href="/blog/gemini-code/" class="card-link">Read More</a>
+                </div>
+            
+                <div class="card">
+                    <h3><a href="/blog/using-your-own-hosted-fonts-on-your-site/">Using Your Own Hosted Fonts on Your Site</a></h3>
+                    <p>How to use fonts hosted on your own hosting account or server for your website instead of importing Google Fonts.</p>
+                    <a href="/blog/using-your-own-hosted-fonts-on-your-site/" class="card-link">Read More</a>
+                </div>
+            </div>
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="copyright">&copy; 2026 Charity Gamble. All rights reserved.</p>
+        <p>Built with <a href="https://11ty.dev">Build Awesome 3.1.5</a>, Hosted on <a href="https://cloudflare.com">CloudFlare Pages</a></p>
+        <div class="social-links">
+            <a href="https://github.com/charitygamble" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/charitygamble" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/cgambledev" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://bsky.app/charitygambledev.bsky.social" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-bluesky"></i>
+            </a>
+            <a href="https://instagram.com/charitygamble.dev" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+               <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <script>
+        // Self-invoking function to encapsulate theme logic and avoid polluting the global scope
+        (() => {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (!themeToggle) {
+                return;
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const htmlElement = document.documentElement;
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+
+                // Set the new theme on the HTML element
+                htmlElement.setAttribute('data-theme', newTheme);
+                // Save the user's preference
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+    </script>
+</body>
+</html>
